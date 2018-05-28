@@ -1,6 +1,6 @@
 # ExploreMetro-MiniProgram
 
-ExploreMetro is an wechat mini-app that helps user to get information of metro lines and metro stations in Shanghai.
+ExploreMetro is a wechat mini-app that helps user to get information of metro lines and metro stations in Shanghai.
 You can use it by searching "ExploreMetro" in your wechat-miniapps.
 Please contact us if you have any comments or for project corporation: reigndesign.com
 
