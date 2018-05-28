@@ -1,0 +1,181 @@
+/**index.wxss**/
+.header {
+  position: relative;
+  width: 100%;
+  vertical-align: top;
+}
+
+.header_image {
+  position: relative;
+  left: 50%;
+  margin-left: -25px;
+  width: 50px;
+  height: 50px;
+}
+
+.user-motto {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 40rpx;
+  font-family: PingFang SC;
+}
+
+.stations_nearby {
+  margin-bottom: 5%;
+}
+
+.nearby_button {
+  border: 2px solid;
+  border-radius: 10px;
+  font-family: SF UI Text;
+  color: white;
+  width: 90%;
+  background-color: #0033cc;
+}
+
+.horizontal_divider{
+  width: 100%;
+  border-bottom-color: #979797;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  margin-top: 10px;
+}
+
+.input_group {
+  flex-direction: row;
+  align-items: center;
+  margin-left: 10%;
+  margin-top: 5%;
+  width: 80%;
+  height: 1.4rem;
+  border:1px solid #979797;
+  border-radius: 10px;
+  display: inline-block;
+  position: relative;
+}
+
+.icon_left {
+  float: left;
+  margin-top: 5px;
+  margin-left: 3px;
+}
+
+.station_input{
+  position: absolute;
+  width: 90%;
+  margin-left: 8%;
+}
+
+.station_placeholder {
+  text-align: center;
+}
+
+.icon_right {
+  float: right;
+  margin-top: 5px;
+  margin-right: 3px;
+}
+
+.icon_button {
+  margin-top: 3px;
+  margin-right: 3px;
+  height: 18px;
+  width: 18px;
+  border: 1px solid;
+  border-radius: 100%;
+  background-color: #ADA1A7;
+  color: white;
+  font-size: 35%;
+  text-align: center;
+  vertical-align: middle;
+  padding:0px;
+}
+
+.scroll-view_H {
+  white-space: nowrap;
+}
+
+.scroll-view-item_H {
+  display: inline-block;
+  width: 70px;
+  height: 35px;
+  margin: 5px 0px 5px 10px;
+}
+
+.scroll-view-item_H button {
+  width: 70px;
+  height: 35px;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  padding: 0px 5px 10px 5px;
+  vertical-align: middle;
+}
+
+.scroll_data_container {
+  margin-top: 5%;
+}
+
+.line_header{
+  background-color: #FAFAFA;
+  padding: 3px 0px 3px 0px;
+}
+
+.line_name {
+  margin-left: 20px;
+}
+
+.station_name_container {
+  margin: 5px 0px 5px 20px;
+  padding: 3px 0px 3px 0px;
+  font-size: 30rpx;
+  height: 30px;
+}
+
+.station_name_display {
+  height: 30px;
+}
+
+.station_name_display::before {
+  content: "";
+  height: 15px;
+  width:15px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: inherit;
+  border-radius: 100%;
+  display: inline-block;
+}
+
+.name_text_container {
+  margin-left: 20px;
+  margin-top: -25px;
+  height: 30px;
+}
+
+.name_text{
+  margin-left: 5px;
+  position: relative;
+  top: 0px;
+  height: 30px;
+}
+
+.station_border {
+   border-left-width: 1px;
+   border-left-style: solid;
+   height: 30px;
+   margin-left: 28px;
+   margin-top: -21px;
+   margin-bottom: -9px;
+}
+
+.line_display {
+  display: block;
+  margin-left: 5rpx;
+  margin-top: 10rpx;
+  width: 95%;
+}
+
+input:placeholder-shown {
+  border: 2px solid blue;
+}

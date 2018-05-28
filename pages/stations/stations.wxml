@@ -1,0 +1,78 @@
+<!--stations.wxml-->
+<view class="container">
+  <view wx:if="{{hasDualView}}" class="view_buttons">
+    <button bindtap="toggleListMapView" class="{{listViewClass}}" data-current-view="list">List View</button>
+    <button bindtap="toggleListMapView" class="{{mapViewClass}}" data-current-view="map">Map View</button>
+  </view>
+  <view class="list_container" wx:if="{{!isMapView}}">
+    <block wx:for="{{stationData}}" wx:for-index="idx" wx:for-item="station">
+      <view class="station_card">
+        <view class="card_header"> 
+          <view>
+            <text class="station_name_text">{{station.cardname}}</text>
+            <text data-station-name-en="{{station.name_en}}" data-station-name-zh="{{station.name_zh}}" data-station-lat="{{station.lat}}" data-station-lng="{{station.lng}}" data-user-lat="{{myLatitude}}" data-user-lng="{{myLongitude}}" bindtap="getDirections"  class="directions_text" style="color: blue">Get Directions</text>
+          </view>
+          <view>
+            <image src="../../resources/images/compass.png"  class="distance_image"></image>
+            <text wx:if="{{station.distance < 999}}" class="distance_text">{{station.distance}} m</text>
+            <text wx:else  class="distance_text"> {{(station.distance/1000)}} km</text>
+          </view>
+        </view>
+        <block wx:for="{{station.lines}}" wx:for-index="lIdx" wx:for-item="line">
+          <view class="station_line_card">
+            <view class="line_header" style="background-color: {{line.color}}; border-color: {{line.color}}">Line {{line.name}}</view>
+              <block wx:for="{{line.data}}" wx:for-index="dIdx" wx:for-item="data">
+                <view wx:if="{{data.first && data.last}}"class="time_data" class="destionation_data" style="border-color: #line.color">
+                  <view wx:if="{{data.first && data.last}}" class="destination_name">{{data.destination}}</view>
+                  <view wx:if="{{data.first && data.last}}"class="time_data">
+                    <text class="first_time">{{data.first}}</text>
+                    <text class="divider_H"></text>
+                    <text class="last_time">{{data.last}}</text>
+                  </view>
+                </view>
+              </block>
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+  <view class="map_container"  wx:if="{{isMapView}}">
+    <map id="stationmap" longitude="{{mapLng}}" latitude="{{mapLat}}" scale="{{scale}}" markers="{{markers}}" polylines="{{polylines}}" controls="{{controls}}" bindcontroltap="controlAction" show-location="{{true}}"></map>
+  </view>
+
+
+
+  <!-- view class="list_container" wx:if="{{!isMapView}}">
+    <block wx:for="{{stationData}}" wx:for-index="idx" wx:for-item="station">
+      <view class="station_container">
+        <view class="station_header">
+          <view class="station_header_name">
+            <text>{{station.name_en}}\n{{station.name_zh}}</text>
+            <text wx:if="{{station.distance}}" class="distance_text">{{station.distance}} m</text>
+          </view>
+          <view data-station-name-en="{{station.name_en}}" data-station-name-zh="{{station.name_zh}}" data-station-lat="{{station.lat}}" data-station-lng="{{station.lng}}" data-user-lat="{{myLatitude}}" data-user-lng="{{myLongitude}}" bindtap="getDirections" class="station_directions">Get Directions</view>
+        </view>
+        <block wx:for="{{station.lines}}" wx:for-index="idx" wx:for-item="line" >
+          <view class="line_header">Line {{line.name}}</view>
+          <view class="line_data_wrapper">
+            <view class="line_data_content">
+              <view class="line_data_row">
+                <view class="line_header_cell_destination">Destination</view>
+                <view class="line_header_cell_time">First</view>
+                <view class="line_header_cell_time">Last</view>
+              </view>
+              <block wx:for="{{line.data}}" wx:for-index="didx" wx:for-item="data">
+                <view class="line_data_row">
+                  <text class="line_data_cell_destination">Really Long English Name\n{{data.destination}}</text>
+                  <text class="line_data_cell_time">{{data.first}}</text>
+                  <text class="line_data_cell_time">{{data.last}}</text>
+                </view>
+              </block>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+  <map id="map" wx:if="{{isMapView}}" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" markers="{{markers}}" polylines="{{polylines}}" bindregionchange="regionchange" show-location="{{true}}"></map -->
+</view>

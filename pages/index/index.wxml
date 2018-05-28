@@ -1,0 +1,50 @@
+<!--index.wxml-->
+<view class="header">
+  <view>
+    <image src="../../resources/images/metro_icon.png"  class="header_image">
+    </image>
+  </view>
+  <view class="user-motto">
+    <text>{{motto}}</text>
+  </view>
+</view>
+<view class="stations_nearby">
+  <button bindtap="showNearbyStations" class="nearby_button">See nearby stations</button>
+  <view class="horizontal_divider"></view>
+  <view class="input_group">
+    <icon class="icon_left" type="search" size="15" />
+    <form>
+    <input class="station_input" bindinput="searchInput" focus="{{isFocused}}" data-line-stations="{{allLines}}" data-search-stations="{{searchLines}}" placeholder="Enter station name" placeholder-class="station_placeholder"/>
+    
+    <button class="icon_button"  formType="reset" bindtap="resetInput"  data-line-stations="{{allLines}}" data-search-stations="{{searchLines}}">X</button>
+     </form>
+  </view>
+</view>
+<view>
+  <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
+    <block wx:for="{{stationLines}}">
+        <view class="scroll-view-item_H">
+          <button bindtap="tapToLine" data-selected-line="{{item.name}}" style="background-color: {{item.color}}">Line {{item.name}}</button>
+        </view>
+    </block>
+  </scroll-view>
+</view>
+<view class="scroll_data_container">
+  <scroll-view scroll-y style="height: 400px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}">
+    <block wx:for="{{searchLines}}" wx:for-index="lineName" wx:for-item="line">
+      <view id="line_{{line.name}}" class="line_header">
+       <text style="color: {{line.color}}" class="line_name">Line {{line.name}}</text> 
+      </view>
+      <block wx:for="{{line.stations}}" wx:for-index="sIdx" wx:for-item="station">
+        <view data-station-details="{{station}}"  bindtap="showStationDetails" class="station_name_container">
+          <view class="station_name_display" style="border-color: {{line.color}}">
+            <view class="name_text_container">
+              <text class="name_text">{{station.fullname}}</text>
+            </view>
+          </view>
+        </view>
+        <view  wx:if="{{!station.isLast}}" class="station_border" style="border-color: {{line.color}}"></view >
+      </block>
+    </block>
+  </scroll-view>
+</view>

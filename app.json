@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/stations/stations",
+    "pages/logs/logs",
+    "pages/map/map"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Explore Shanghai Metro",
+    "navigationBarTextStyle": "black"
+  }
+}
